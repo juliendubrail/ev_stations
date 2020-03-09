@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h2>Car Location</h2>
+  <h2>Charging Station Location</h2>
       <Example></Example>
 </div>
 </template>

@@ -2,21 +2,21 @@
   <b-row>
     <b-col cols="12">
       <h2>
-        EV charging Station {{team.location}}
+        EV charging Station {{station.location}}
       </h2>
       <b-jumbotron>
-    <template v-slot:header>{{team.name}}</template>
+    <template v-slot:header>{{station.name}}</template>
 
     <template v-slot:lead>
           <b-img src="https://picsum.photos/1024/400/?image=41" fluid alt="Responsive image"></b-img>
           <br>
-          percentage remaining: {{team.percentRemaining}}<br>
-          range: {{team.range}}<br>
+          percentage remaining: {{station.percentRemaining}}<br>
+          range: {{station.range}}<br>
     </template>
 
     <hr class="my-4">
 
-    <b-button block class="maps-btn" variant="success" @click="showMap(team.lat,team.lng)">Show Location</b-button>
+    <b-button block class="maps-btn" variant="success" @click="showMap(station.lat,station.lng)">Show Location</b-button>
   </b-jumbotron>
     </b-col>
   </b-row>
@@ -25,20 +25,20 @@
 <script>
 
 import router from '../router'
-import { Team } from '../Team'
+import { Stations } from '../Stations'
 
 export default {
   name: 'Details',
   data () {
     return {
       key: '',
-      teams: Team,
-      team: {}
+      stations: Stations,
+      station: {}
     }
   },
   created () {
     const id = parseInt(this.$route.params.id, 0)
-    this.team = this.teams.find(x => x.id === id)
+    this.station = this.stations.find(x => x.id === id)
   },
   methods: {
     showMap(lat, lng){

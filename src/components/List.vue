@@ -4,7 +4,7 @@
             <h2>
                 Ev Charging 
             </h2>
-            <b-table striped hover :items="teams" :fields="fields" @row-clicked="details">
+            <b-table striped hover :items="stations" :fields="fields" @row-clicked="details">
                 
             </b-table>
         </b-col>    
@@ -13,7 +13,7 @@
 
 <script>
 import router from '../router'
-import { Team } from '../Team'
+import { Stations } from '../Stations'
 
 export default {
     name: 'List',
@@ -24,16 +24,16 @@ export default {
                 { key: 'name', label: 'City', class: 'text-left', thClass: 'text-center'},
                 { key: 'location', label: 'Location', class: 'text-left', thClass: 'text-center'}
             ],
-            teams: Team,
+            teams: Stations,
             errors: []
         }
     },
     created () {
-        this.teams = Team
+        this.stations = Stations
     },
     methods: {
-        details (team) {
-            router.push({ name: 'Details', params: {id: team.id}})
+        details (station) {
+            router.push({ name: 'Details', params: {id: station.id}})
         }
     }
     
